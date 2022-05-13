@@ -3,8 +3,8 @@ import React from 'react'
 const InfoCard = ({ item }) => {
     const { img, bgColor, title, body } = item
     return (
-        <div class={`card lg:card-side shadow-xl  ${bgColor}`}>
-            <figure className="pl-8 pt-8">
+        <div class={`card lg:card-side shadow-xl   ${bgColor}`}>
+            <figure className="pl-8 pt-8 md:pt-0">
                 <img src={img} alt="Album" />
             </figure>
             <div class="card-body text-gray-200">

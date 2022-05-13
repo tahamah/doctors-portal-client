@@ -2,6 +2,29 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+    const menuItems = (
+        <>
+            <li>
+                <Link to="/">Home</Link>
+            </li>
+
+            <li>
+                <Link to="/">About</Link>
+            </li>
+            <li>
+                <Link to="/">Appointment</Link>
+            </li>
+            <li>
+                <Link to="/">Reviews</Link>
+            </li>
+            <li>
+                <Link to="/">content Us</Link>
+            </li>
+            <li>
+                <Link to="/">Login</Link>
+            </li>
+        </>
+    )
     return (
         <div className="navbar max-w-7xl mx-auto bg-base-100">
             <div className="navbar-start">
@@ -26,25 +49,7 @@ const Navbar = () => {
                         tabindex="0"
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-
-                        <li>
-                            <Link to="/">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Appointment</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Reviews</Link>
-                        </li>
-                        <li>
-                            <Link to="/">content Us</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Login</Link>
-                        </li>
+                        {menuItems}
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -52,27 +57,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:block">
-                <ul className="menu menu-horizontal  p-0">
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-
-                    <li>
-                        <Link to="/">About</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Appointment</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Reviews</Link>
-                    </li>
-                    <li>
-                        <Link to="/">content Us</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Login</Link>
-                    </li>
-                </ul>
+                <ul className="menu menu-horizontal  p-0">{menuItems}</ul>
             </div>
         </div>
     )

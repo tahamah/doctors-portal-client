@@ -1,27 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     const menuItems = (
         <>
             <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/">Home</NavLink>
             </li>
 
             <li>
-                <Link to="/">About</Link>
+                <NavLink to="/">About</NavLink>
             </li>
             <li>
-                <Link to="/">Appointment</Link>
+                <NavLink to="/appointment">Appointment</NavLink>
             </li>
             <li>
-                <Link to="/">Reviews</Link>
+                <NavLink to="/">Reviews</NavLink>
             </li>
             <li>
-                <Link to="/">content Us</Link>
+                <NavLink to="/">content Us</NavLink>
             </li>
             <li>
-                <Link to="/">Login</Link>
+                <NavLink to="/">Login</NavLink>
             </li>
         </>
     )
@@ -47,7 +47,7 @@ const Navbar = () => {
                     </label>
                     <ul
                         tabIndex="0"
-                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                        className="menu text-white menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
                         {menuItems}
                     </ul>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:block">
-                <ul className="menu menu-horizontal  p-0">{menuItems}</ul>
+                <ul className="menu menu-horizontal   p-0">{menuItems}</ul>
             </div>
         </div>
     )

@@ -3,9 +3,9 @@ import React from 'react'
 const Service = ({ service, setTreatment }) => {
     const { name, slots } = service
     return (
-        <div class="card lg:w-lg bg-base-100 shadow-xl">
-            <div class="card-body text-center">
-                <h2 class=" text-secondary text-2xl font-bold ">{name}</h2>
+        <div className="card lg:w-lg bg-base-100 shadow-xl">
+            <div className="card-body text-center">
+                <h2 className=" text-secondary text-2xl font-bold ">{name}</h2>
                 <p>
                     {slots.length ? (
                         <span>{slots[0]}</span>

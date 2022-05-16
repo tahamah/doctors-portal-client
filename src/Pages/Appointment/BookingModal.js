@@ -1,8 +1,11 @@
 import { format } from 'date-fns'
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import auth from '../../firebase.init'
 
 const BookingModal = ({ treatment, date, setTreatment }) => {
     const { name, slots } = treatment
+    const [user] = useAuthState(auth)
     const handleBooking = (e) => {
         e.preventDefault()
         const slot = e.target.slot.value
@@ -33,22 +36,24 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
                             name="slot"
                             className="select select-bordered w-full max-w-xs"
                         >
-                            {slots.map((s, i) => (
-                                <option key={i} value={s}>
-                                    {s}
+                            {slots.map((slot, index) => (
+                                <option key={index} value={slot}>
+                                    {slot}
                                 </option>
                             ))}
                         </select>
                         <input
+                            disabled
                             type="text"
                             name="name"
-                            placeholder="Your Name"
+                            value={user?.displayName || ''}
                             className="input input-bordered w-full max-w-xs"
                         />
                         <input
+                            disabled
                             type="email"
                             name="email"
-                            placeholder="Email Address"
+                            value={user?.email || ''}
                             className="input input-bordered w-full max-w-xs"
                         />
                         <input
@@ -65,7 +70,7 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
                     </form>
 
                     <label
-                        for="booking-modal"
+                        htmlFor="booking-modal"
                         className="btn btn-sm btn-circle absolute right-2 top-2"
                     >
                         ✕

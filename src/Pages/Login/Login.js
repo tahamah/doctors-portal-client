@@ -6,7 +6,7 @@ import {
 import auth from '../../firebase.init'
 import { useForm } from 'react-hook-form'
 import Spinner from '../Shared/Spinner'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] =
         useSignInWithGoogle(auth)
@@ -19,6 +19,12 @@ const Login = () => {
         formState: { errors },
         handleSubmit,
     } = useForm()
+    const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || '/'
+    if (user || gUser) {
+        navigate(from, { replace: true })
+    }
 
     let singInError
 
@@ -32,10 +38,6 @@ const Login = () => {
                 <small> {error?.message || error?.message}</small>
             </p>
         )
-    }
-
-    if (user || gUser) {
-        console.log(user)
     }
 
     const onSubmit = (data) => {
